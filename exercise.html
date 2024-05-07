@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            gap : 40px;
+        }
+        .card{
+            display: flex;
+            flex-direction: column;
+            gap : 20px;
+            align-items: center;
+        }
+        .box{
+            width: 300px;
+            height: 300px;
+            border: 1px solid gray;
+            position: relative;
+        }
+        button {
+            width: 150px;
+            padding: 10px 15px;
+        }
+        #box1{
+            background-color: tomato;
+            right: 0;
+            transition: right .5s;
+        }
+        #box2{
+            background-color: green;
+            bottom: 0;
+            transition: bottom .5s;
+        }
+        #box3{
+            background-color: blue;
+            transform: rotate(0deg);
+            transition: transform 5.0s;
+        }
+        #box4{
+            background-color: yellow;
+            transform: scale(1.0);
+            transition: transform 5.0sn;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="card">
+        <div class="box" id="box1"></div>
+        <button onclick="rightToLeft()">Sola Getir</button>
+    </div>
+    <div class="card">
+        <div class="box" id="box2"></div>
+        <button onclick="bottomToUp()">Yukarı Getir</button>
+    </div>
+    <div class="card">
+        <div class="box" id="box3"></div>
+        <button onclick="rotate360()">Döndür</button>
+    </div>
+    <div class="card">
+        <div class="box" id="box4"></div>
+        <button onclick="scale()">Büyüt</button>
+    </div>
+</div>
+    <script>
+        function rightToLeft(){
+            document.getElementById('box1').style.right='20px'
+        }
+        function bottomToUp(){
+            document.getElementById('box2').style.bottom='20px'
+        }
+        let degree = 360
+        function rotate360(){
+            
+            document.getElementById('box3').style.transform='rotate(' +degree+ 'deg)'
+            degree = degree + 360
+        }
+        function scale(){
+            document.getElementById('box4').style.transform='scale(1.2)'
+        }
+    </script>
+</body>
+</html>
